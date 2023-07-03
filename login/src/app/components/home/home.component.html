@@ -1,0 +1,39 @@
+<div class="container">
+        <div class="text-center">
+            <h3><u>Product Details</u></h3>
+        </div>
+    <button class="btn btn-primary" [routerLink]="['/add']">Add Product</button>
+    <div class="card m-1 rounded shadow">
+        <table class="table">
+            <thead>
+                <h1 *ngIf="!isResultLoaded">Loding</h1>
+                <tr>
+                    <th scope="col">#SR</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Qty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of productArray">
+                    <td>{{p.id}}</td>
+                    <td>{{p.pname}}</td>
+                    <td>{{p.size}}</td>
+                    <td>{{p.color}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.rate}}</td>
+                    <td>{{p.qty}}</td>
+                    <td>
+                        <button class="btn btn-warning" type="button" [routerLink]="['/add',p.id]">Update</button>
+                        <button class="btn btn-danger ms-2" type="button" (click)="setDelete(p)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
